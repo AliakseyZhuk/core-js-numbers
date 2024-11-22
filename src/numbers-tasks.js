@@ -1,3 +1,7 @@
+root = true;
+end_of_line = lf;
+trim_trailing_whitespace = true;
+insert_final_newline = true;
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                              *
@@ -37,8 +41,6 @@ function getCircleCircumference(radius) {
   return 2 * 3.14 * radius;
 }
 
-
-
 /**
  * Returns an average of two given numbers.
  *
@@ -52,7 +54,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return((value1 + value2) / 2);
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -161,9 +163,9 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  const diag = Math.sqrt(a ** 2 + b ** 2); 
-  const paradiagonal = Math.sqrt(diag ** 2 + c ** 2);
-  return paradiagonal;
+  const diag = Math.sqrt(a ** 2 + b ** 2);
+  const ParallelepipedDiagonal = Math.sqrt(diag ** 2 + c ** 2);
+  return ParallelepipedDiagonal;
 }
 
 /**
@@ -184,7 +186,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return Math.round(num / Math.pow(10, pow)) * Math.pow(10, pow);
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -266,14 +268,15 @@ function getFibonacciNumber(index) {
   if (index === 0) return 0;
   if (index === 1) return 1;
 
-  let prev = 0, curr = 1;
-  
+  let prev = 0;
+  let curr = 1;
+
   for (let i = 2; i <= index; i++) {
-    let next = prev + curr;
+    const next = prev + curr;
     prev = curr;
     curr = next;
   }
-  
+
   return curr;
 }
 
@@ -304,8 +307,9 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  return num.toString()
-    .split('') 
+  return num
+    .toString()
+    .split('')
     .map(Number)
     .reduce((sum, digit) => sum + digit, 0);
 }
