@@ -1,7 +1,3 @@
-root = true;
-end_of_line = lf;
-trim_trailing_whitespace = true;
-insert_final_newline = true;
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                              *
@@ -233,7 +229,7 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
   const result = Number(value);
-  return isNaN(result) ? def : result;
+  return Number.isNaN(result) ? def : result;
 }
 
 /**
@@ -271,7 +267,7 @@ function getFibonacciNumber(index) {
   let prev = 0;
   let curr = 1;
 
-  for (let i = 2; i <= index; i++) {
+  for (let i = 2; i <= index; i += 1) {
     const next = prev + curr;
     prev = curr;
     curr = next;
@@ -326,7 +322,12 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  return num > 0 && (num & (num - 1)) === 0;
+  if (num <= 0) return false;
+  let n = num;
+  while (n % 2 === 0) {
+    n /= 2;
+  }
+  return n === 1;
 }
 
 /**
@@ -433,7 +434,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return typeof number === 'number' && !isNaN(number);
+  return typeof number === 'number' && !Number.isNaN(number);
 }
 
 /**
@@ -463,7 +464,7 @@ function isInteger(number) {
  */
 function getFloatOnString(str) {
   const result = parseFloat(str);
-  return isNaN(result) ? NaN : result;
+  return Number.isNaN(result) ? NaN : result;
 }
 
 /**
@@ -482,7 +483,7 @@ function getFloatOnString(str) {
  */
 function getIntegerOnString(str, base) {
   const result = parseInt(str, base);
-  return isNaN(result) ? NaN : result;
+  return Number.isNaN(result) ? NaN : result;
 }
 
 /**
